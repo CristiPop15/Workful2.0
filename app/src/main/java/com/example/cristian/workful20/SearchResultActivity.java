@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -32,6 +33,8 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class SearchResultActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private Boolean exit = false;
 
 
     @Override
@@ -77,9 +80,22 @@ public class SearchResultActivity extends AppCompatActivity implements Navigatio
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (exit) {
+                finish(); // finish activity
+            } else {
+                Toast.makeText(this, "Press Back again to Exit.",
+                        Toast.LENGTH_SHORT).show();
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit = false;
+                    }
+                }, 3 * 1000);
+            }
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,7 +123,8 @@ public class SearchResultActivity extends AppCompatActivity implements Navigatio
         if (id == R.id.action_settings) {
             return true;
         }else if(id == R.id.action_filter){
-            new network(this).execute();
+            Intent i = new Intent(this, FilterActivity.class);
+            startActivity(i);
         }
 
 
@@ -120,18 +137,8 @@ public class SearchResultActivity extends AppCompatActivity implements Navigatio
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.login) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -142,32 +149,3 @@ public class SearchResultActivity extends AppCompatActivity implements Navigatio
 
 }
 
-class network extends AsyncTask<Void,Void,City>{
-    Context c;
-
-    public network(Context c) {
-        this.c = c;
-    }
-
-    @Override
-    protected City doInBackground(Void... params) {
-        try {
-            final String url = "http://192.168.100.2:8080/WebProjectWorkful/app";
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-            City  city = restTemplate.getForObject(url, City.class);
-
-            Log.e("MainActivity", (city.getName() == null ? "null":city.getName()));
-
-            return city;
-        } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
-        }
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(City greeting) {
-
-    }
-}

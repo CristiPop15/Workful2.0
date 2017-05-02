@@ -2,32 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
+        jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
         jumboMode="false"
         revision="25.0.1"
-        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\spring-android-core-1.0.1.RELEASE-508a2a209efa89e3bbb8c15744946cd041068e54.jar" />
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0-3eb56a50d563346dc30db9be7ef34451b4065d7d.jar" />
     </item>
     <item
-        jar="C:\Users\Cristian\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
         jumboMode="false"
         revision="25.0.1"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0-e5f559893adab6dd1684db02d6e6894309dea2bc.jar" />
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\jackson-core-2.3.2-6eabeb7f109ced7298763234cbeb6c7d0d399d24.jar" />
     </item>
     <item
-        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="false"
         revision="25.0.1"
-        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.3.0-50bef9aa57a8ef74a137380d0e07046103f93a10.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
-        jumboMode="false"
-        revision="25.0.1"
-        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\spring-android-rest-template-1.0.1.RELEASE-9e474d426c43e461f3af653e0ab2a06ad3c2de85.jar" />
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-575da050088d4efdefa273915b8ab7161e1ccc92.jar" />
     </item>
     <item
         jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
@@ -37,11 +30,11 @@
         <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-190419124508477250319318e13b78d6b5aee51d.jar" />
     </item>
     <item
-        jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
         jumboMode="false"
         revision="25.0.1"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-575da050088d4efdefa273915b8ab7161e1ccc92.jar" />
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-664b5f6b3fd72ac62a261c23eb9a9472f6541ab8.jar" />
     </item>
     <item
         jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.3.2\c75edc740a6d8cb1cef6fa82fa594e0bce561916\jackson-databind-2.3.2.jar"
@@ -58,11 +51,18 @@
         <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-5baaf9538c7775782c308b7a9e5e9837fc3dc36a.jar" />
     </item>
     <item
-        jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jar="C:\Users\Cristian\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
         jumboMode="false"
         revision="25.0.1"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-664b5f6b3fd72ac62a261c23eb9a9472f6541ab8.jar" />
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0-e5f559893adab6dd1684db02d6e6894309dea2bc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
+        jumboMode="false"
+        revision="25.0.1"
+        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\spring-android-rest-template-1.0.1.RELEASE-9e474d426c43e461f3af653e0ab2a06ad3c2de85.jar" />
     </item>
     <item
         jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
@@ -72,6 +72,13 @@
         <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-512aac204d20e14d2dc3a308906adf635aae6036.jar" />
     </item>
     <item
+        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jumboMode="false"
+        revision="25.0.1"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.3.0-50bef9aa57a8ef74a137380d0e07046103f93a10.jar" />
+    </item>
+    <item
         jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
         jumboMode="false"
         revision="25.0.1"
@@ -79,18 +86,11 @@
         <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\classes-f88623aff6dbe883db7dfe55594b0c79ec830da7.jar" />
     </item>
     <item
-        jar="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
         jumboMode="false"
         revision="25.0.1"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0-3eb56a50d563346dc30db9be7ef34451b4065d7d.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristian\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
-        jumboMode="false"
-        revision="25.0.1"
-        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
-        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\jackson-core-2.3.2-6eabeb7f109ced7298763234cbeb6c7d0d399d24.jar" />
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="C:\Users\Cristian\AndroidStudioProjects\Workful2.0\app\build\intermediates\pre-dexed\debug\spring-android-core-1.0.1.RELEASE-508a2a209efa89e3bbb8c15744946cd041068e54.jar" />
     </item>
 
 </items>
