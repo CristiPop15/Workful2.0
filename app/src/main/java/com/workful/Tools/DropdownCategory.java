@@ -12,6 +12,7 @@ import com.example.cristian.workful20.R;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.workful.templates.Category;
 import com.workful.templates.CategoryList;
+import com.workful.templates.City;
 import com.workful.templates.CityList;
 import com.workful.templates.Url;
 
@@ -33,9 +34,11 @@ public class DropdownCategory extends AsyncTask<Void,Void,ArrayList<Category>> {
     private ProgressDialog pg;
     private ArrayAdapter adapter;
 
+    private ArrayList<Category> categories;
 
-    public DropdownCategory(Spinner spinner, String urlPrefix, Context c) {
+    public DropdownCategory(Spinner spinner, String urlPrefix, Context c, ArrayList<Category> categories) {
         this.spinner = spinner;
+        this.categories = categories;
         url = Url.getUrl() + urlPrefix;
         context = c;
         pg = new ProgressDialog(c);
@@ -79,15 +82,16 @@ public class DropdownCategory extends AsyncTask<Void,Void,ArrayList<Category>> {
     @Override
     protected void onPostExecute(ArrayList<Category> listObject) {
 
-        //end progress dialog
-        if(pg.isShowing())
-            pg.dismiss();
+        categories.addAll(listObject);
+
 
         adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, listObject);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.VISIBLE);
 
-
+        //end progress dialog
+        if(pg.isShowing())
+            pg.dismiss();
     }
 }

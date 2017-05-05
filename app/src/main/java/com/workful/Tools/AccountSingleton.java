@@ -33,6 +33,9 @@ public class AccountSingleton {
         this.id = id;
     }
 
+    public void accountLogout(){
+        currentAccount = null;
+    }
 
 
     public static AccountSingleton getCurrent(){

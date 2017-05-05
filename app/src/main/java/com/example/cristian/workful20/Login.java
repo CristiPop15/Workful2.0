@@ -38,13 +38,13 @@ public class Login extends AppCompatActivity {
         password = (EditText)findViewById(R.id.password);
         login_button = (Button)findViewById(R.id.loginButton);
 
+        Log.e("MainActivity", "login activity -------------------------");
+
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
-
-                    Log.e("MainActivity", "Login button clicked");
 
                     String emailS = email.getText().toString();
                     String passwordS = password.getText().toString();
@@ -68,8 +68,9 @@ public class Login extends AppCompatActivity {
 
     private void goBackToMain(){
         Intent i = new Intent(this, MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.putExtra("refresh",1);
         startActivity(i);
-        finish();
 
     }
 
@@ -129,10 +130,12 @@ public class Login extends AppCompatActivity {
                 if(accountInfo == null)
                     Log.e("MainActivity", "Server object null. Bad credentials");
                 else {
+
+                    Log.e("MainActivity", "Logging user in");
+
                     AccountSingleton.createAccount(accountInfo.getEmail(), accountInfo.getId());
-                    if(accountInfo.isRegistered_as_worker()){
-                        new ProfileInformationHttp(c, accountInfo.getId()).execute();
-                    }
+
+                    AccountSingleton.getCurrent().setFull_name((accountInfo.getFull_name()==null?"":accountInfo.getFull_name()));
 
                     goBackToMain();
 

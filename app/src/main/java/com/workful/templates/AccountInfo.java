@@ -6,14 +6,15 @@ package com.workful.templates;
 public class AccountInfo {
     private String email;
     private int id;
-    private boolean registered_as_worker;
+    private String full_name;
 
-    public boolean isRegistered_as_worker() {
-        return registered_as_worker;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setRegistered_as_worker(boolean registered_as_worker) {
-        this.registered_as_worker = registered_as_worker;
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     public void setEmail(String email) {

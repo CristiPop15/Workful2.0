@@ -30,14 +30,16 @@ public class DropdownCity extends AsyncTask<Void, Void, ArrayList<City>> {
     private ProgressDialog pg;
     private ArrayAdapter adapter;
 
+    private ArrayList<City> cities;
 
 
-
-    public DropdownCity(Spinner spinner, String urlPrefix, Context c) {
+    public DropdownCity(Spinner spinner, String urlPrefix, Context c, ArrayList<City> cities) {
         this.spinner = spinner;
+        this.cities = cities;
         url = Url.getUrl() + urlPrefix;
         pg = new ProgressDialog(c);
         context = c;
+        this.cities.clear();
     }
 
 
@@ -53,7 +55,7 @@ public class DropdownCity extends AsyncTask<Void, Void, ArrayList<City>> {
     @Override
     protected void onPostExecute(ArrayList<City> listObject) {
 
-
+        cities.addAll(listObject);
 
         adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, listObject);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);

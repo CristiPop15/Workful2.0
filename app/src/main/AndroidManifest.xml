@@ -33,6 +33,7 @@
         <activity
             android:name=".FilterActivity"
             android:label="Filter"
+            android:noHistory="true"
             android:parentActivityName=".SearchResultActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
 
@@ -45,6 +46,7 @@
         <activity android:name=".Login"
             android:label="Login"
             android:parentActivityName=".MainActivity"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->

@@ -21,19 +21,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/cityS"
         android:spinnerMode="dropdown"
-        android:layout_below="@+id/regionS"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/regionS" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/categoryS"
         android:spinnerMode="dropdown"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/cityS"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp" />
+
+        />
 
     <EditText
         android:layout_width="fill_parent"
@@ -44,5 +42,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/search_button"
+        android:layout_below="@+id/categoryS"/>
 
 </RelativeLayout>

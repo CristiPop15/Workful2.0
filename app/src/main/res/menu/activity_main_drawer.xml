@@ -11,6 +11,7 @@
             android:title="Advanced Search" />
         <item android:id="@+id/register_account" android:icon="@drawable/ic_person_add"
             android:title="Register" />
+
         <item android:id="@+id/settings" android:icon="@drawable/ic_build"
             android:title="Settings"
             android:visible="false"/>
@@ -20,7 +21,7 @@
 
     </group>
 
-    <item android:title="User">
+    <item android:title="Workful">
         <menu>
             <item android:id="@+id/help" android:icon="@drawable/ic_help_outline"
                 android:title="Help" />
