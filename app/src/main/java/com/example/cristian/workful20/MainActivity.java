@@ -1,14 +1,10 @@
 package com.example.cristian.workful20;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.app.SearchManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,10 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,14 +25,11 @@ import android.widget.Toast;
 
 import com.workful.Tools.AccountSingleton;
 import com.workful.Tools.EndlessRecyclerViewScrollListener;
-import com.workful.Tools.GridSpacingItemDecoration;
-import com.workful.Tools.ImageDownloader;
 import com.workful.Tools.SearchAdapter;
-import com.workful.Tools.SearchHttpRequest;
+import com.workful.Tools.HttpCommunication.SearchHttpRequest;
 import com.workful.templates.SearchResult;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -195,6 +186,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.edit_profile) {
 
         } else if (id == R.id.register_account) {
+            Intent i = new Intent(this, RegisterActivity.class);
+            startActivity(i);
 
         } else if (id == R.id.logout) {
             new AlertDialog.Builder(this)

@@ -12,15 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.workful.Tools.AccountSingleton;
-import com.workful.Tools.ProfileInformationHttp;
 import com.workful.templates.AccountInfo;
-import com.workful.templates.CategoryList;
 import com.workful.templates.Url;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.concurrent.ExecutionException;
 
 public class Login extends AppCompatActivity {
 

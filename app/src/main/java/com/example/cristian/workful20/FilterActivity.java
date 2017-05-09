@@ -1,28 +1,21 @@
 package com.example.cristian.workful20;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.workful.Tools.DropdownCategory;
-import com.workful.Tools.DropdownCity;
-import com.workful.Tools.DropdownRegions;
+import com.workful.Tools.HttpCommunication.DropdownCategory;
+import com.workful.Tools.HttpCommunication.DropdownCity;
+import com.workful.Tools.HttpCommunication.DropdownRegions;
 import com.workful.templates.Category;
-import com.workful.templates.CategoryList;
 import com.workful.templates.City;
 import com.workful.templates.Region;
-
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
