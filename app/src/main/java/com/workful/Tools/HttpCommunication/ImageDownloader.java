@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.example.cristian.workful20.R;
 import com.workful.Tools.ImgHandler;
 import com.workful.templates.AccountInfo;
 
@@ -34,10 +35,10 @@ import java.lang.Object;
 public class ImageDownloader extends AsyncTask<Void, Void, Bitmap> {
     private String url = "http://192.168.100.3:8080/Image/getThumbImage?path=E:/ImgApp/";
     private String extension = ".png";
-    private final WeakReference<ImageView> imageViewReference;
+    private final ImageView imageViewReference;
 
     public ImageDownloader(ImageView imageView, String email) {
-        imageViewReference = new WeakReference<>(imageView);
+        imageViewReference = imageView;
         url = url+email+extension;
     }
 
@@ -83,19 +84,24 @@ public class ImageDownloader extends AsyncTask<Void, Void, Bitmap> {
     // Once the image is downloaded, associates it to the imageView
     protected void onPostExecute(Bitmap bitmap) {
 
-        Log.e("MainActivity", bitmap.toString());
 
         if (isCancelled()) {
             bitmap = null;
         }
+        try {
+            Log.e("MainActivity", bitmap.toString());
+        }catch (NullPointerException e){
+            imageViewReference.setImageResource(R.drawable.default_profile_image);
+
+        }
 
         if (imageViewReference != null) {
-            ImageView imageView = imageViewReference.get();
-            if (imageView != null) {
-                imageView.setImageBitmap(bitmap);
-            }
+                if(bitmap != null)
+                    imageViewReference.setImageBitmap(bitmap);
+            }   else
+                    imageViewReference.setImageResource(R.drawable.default_profile_image);
         }
-    }
+
 
     public static byte[] readFully(InputStream input) throws IOException
     {

@@ -1,11 +1,7 @@
 package com.workful.Tools;
 
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 
 /**
