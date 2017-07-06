@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.cristian.workful20.About">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ab"
+        android:text="Identificarea muncitorilor necalificați, dar și a „meseriașilor” fiind îngreunată și mai mult datorită lipsei unei infrastructuri care să permită gestionarea și plasarea forței de muncă, dar și lipsa de deschidere spre piața de desfacere ale acestor persoane. O altă problemă importantă, care impiedică aceste categorii de persoane în furnizarea și prestarea serviciilor și cunoștiințelor de care dispun, este gradul ridicat de rezistență ale acestor persoane față de tehnologie. În contextul actual în care trăim, o lume interconectată presupune și un grad de absorbție ridicat al tehnologiei.
+"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/ab"
+        android:text="    Datorită acestor probleme, am hotărât să creez aplicația Workful. Această aplicație joacă rolul de platformă, care facilitează căutarea și identificarea persoanelor care prestează anumite servicii in vederea valorificării și satisfacerii nevoilor clienților. Deși pentru realizarea aplicației sunt folosite ultimele tehnologii, aceasta este gandită în așa fel incât să pună la dispoziția persoanelor care doresc să își vândă serviciile, o interfață grafică plăcută, simplu de utilizat care să faciliteze înregistrarea userilor, dar și identificarea acestora. Obiectivul aplicației este: conectarea persoanelor care prestează servicii cu clienții care au nevoie de aceste servicii.
+"
+        />
+
+</RelativeLayout>

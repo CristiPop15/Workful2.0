@@ -138,7 +138,7 @@ public class SearchResultActivity extends AppCompatActivity implements Navigatio
         int id = item.getItemId();
 
         if (id == R.id.login) {
-            // Handle the camera action
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

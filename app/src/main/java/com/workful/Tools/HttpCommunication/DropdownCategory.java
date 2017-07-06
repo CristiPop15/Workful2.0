@@ -84,7 +84,6 @@ public class DropdownCategory extends AsyncTask<Void,Void,ArrayList<Category>> {
 
         categories.addAll(listObject);
 
-
         adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, listObject);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);

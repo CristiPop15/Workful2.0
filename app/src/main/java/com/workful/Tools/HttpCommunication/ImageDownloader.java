@@ -1,37 +1,22 @@
 package com.workful.Tools.HttpCommunication;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.cristian.workful20.R;
 import com.workful.Tools.ImgHandler;
-import com.workful.templates.AccountInfo;
-
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
-
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
-
-import java.lang.Object;
 
 /**
  * Created by Cristian on 5/3/2017.
  */
+
 public class ImageDownloader extends AsyncTask<Void, Void, Bitmap> {
     private String url = "http://192.168.100.3:8080/Image/getThumbImage?path=E:/ImgApp/";
     private String extension = ".png";
@@ -43,9 +28,13 @@ public class ImageDownloader extends AsyncTask<Void, Void, Bitmap> {
     }
 
     @Override
+    protected void onPreExecute() {
+        Log.e("MainActivity", "preex imgDownloader");
+    }
+
+    @Override
     // Actual download method, run in the task thread
     protected Bitmap doInBackground(Void... params) {
-        // params comes from the execute() call: params[0] is the url.
         return downloadBitmap(url);
     }
 

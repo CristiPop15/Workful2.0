@@ -1,12 +1,15 @@
 package com.workful.Tools.HttpCommunication;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.cristian.workful20.MainActivity;
 import com.workful.Tools.SearchAdapter;
+import com.workful.templates.Account;
 import com.workful.templates.CategoryList;
 import com.workful.templates.SearchList;
 import com.workful.templates.SearchResult;
@@ -29,17 +32,22 @@ public class SearchHttpRequest extends AsyncTask<Void, Void, ArrayList<SearchRes
     ArrayList<SearchResult> lst;
     private ProgressDialog pg;
     private int page;
+    private boolean ok;
 
 
     private String url_search;
 
-    public SearchHttpRequest(String query, Context c, SearchAdapter adapter, int page, ArrayList<SearchResult> lst) {
+    public SearchHttpRequest(String query, Context c, SearchAdapter adapter, int page, ArrayList<SearchResult> lst, boolean ok) {
         this.lst = lst;
         this.query = query;
         this.page = page;
         this.adapter = adapter;
 
         pg = new ProgressDialog(c);
+
+        this.ok = ok;
+
+
     }
 
 
@@ -49,7 +57,8 @@ public class SearchHttpRequest extends AsyncTask<Void, Void, ArrayList<SearchRes
         super.onPreExecute();
 
         pg.setMessage("Searching..");
-        pg.setCancelable(false);
+        pg.setCancelable(true);
+        pg.setCanceledOnTouchOutside(true);
         pg.show();
 
         url_search = Url.getUrl() + query + String.format("&limit=%s",page);
@@ -86,15 +95,27 @@ public class SearchHttpRequest extends AsyncTask<Void, Void, ArrayList<SearchRes
     @Override
     protected void onPostExecute(ArrayList<SearchResult> result) {
 
-
-        if(result != null){
-            int last = lst.size()-1;
-            lst.addAll(result);
-            adapter.notifyItemRangeInserted(last, 10);
-        }
-
         //end progress dialog
         if(pg.isShowing())
             pg.dismiss();
+        Log.e("MainActivity", "postexecute after pg");
+
+
+
+        if(result != null){
+            if(lst.size()>=1) {
+                int last = lst.size() - 1;
+                lst.addAll(result);
+                adapter.notifyItemRangeInserted(last, 10);
+            }
+            else {
+                int last = lst.size();
+                lst.addAll(result);
+                adapter.notifyItemRangeInserted(last, 10);
+            }
+        }
+
+
+
     }
 }

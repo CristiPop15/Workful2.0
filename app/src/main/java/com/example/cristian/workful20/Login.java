@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.workful.Tools.AccountSingleton;
+import com.workful.Tools.EmailVerification;
 import com.workful.templates.AccountInfo;
 import com.workful.templates.Url;
 
@@ -45,12 +47,26 @@ public class Login extends AppCompatActivity {
                     String emailS = email.getText().toString();
                     String passwordS = password.getText().toString();
 
-                    String url_prefix = "login?email="+emailS+"&password="+passwordS;
+                    if(!(emailS.matches("") || passwordS.matches("")))
+                    {
 
-                    if(AccountSingleton.getCurrent() == null)
-                        new LoginHttp(url_prefix, Login.this).execute();
+                        if(EmailVerification.login_email(emailS)) {
+                            String url_prefix = "login?email=" + emailS + "&password=" + passwordS;
+                            url_prefix.replaceAll(" ", "");
+
+                            if (AccountSingleton.getCurrent() == null)
+                                new LoginHttp(url_prefix, Login.this).execute();
+                            else
+                                Log.e("MainActivity", "Already logged in");
+                        }
+                        else
+                            Toast.makeText(Login.this, "Email-ul nu este corect formatat!", Toast.LENGTH_LONG).show();
+
+
+                    }
                     else
-                        Log.e("MainActivity", "Already logged in");
+                        Toast.makeText(Login.this, "Introduceti valori in campuri!", Toast.LENGTH_LONG).show();
+
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -107,7 +123,7 @@ public class Login extends AppCompatActivity {
 
                 accountInfo = restTemplate.getForObject(url, AccountInfo.class);
 
-                Log.e("MainActivity", accountInfo.toString());
+                Log.e("MainActivity", String.valueOf(accountInfo.getId()));
 
                 return accountInfo;
 
@@ -124,7 +140,8 @@ public class Login extends AppCompatActivity {
 
             if(AccountSingleton.getCurrent() == null)
                 if(accountInfo == null)
-                    Log.e("MainActivity", "Server object null. Bad credentials");
+                    Toast.makeText(Login.this, "Email sau parola gresite!", Toast.LENGTH_LONG).show();
+
                 else {
 
                     Log.e("MainActivity", "Logging user in");

@@ -18,4 +18,8 @@ public class EmailVerification {
         matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    public static boolean login_email(String email){
+        return email.contains("@");
+    }
 }

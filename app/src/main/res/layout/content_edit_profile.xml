@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent" tools:context="com.example.cristian.workful20.EditProfile">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            >
+
+
+                <ImageView
+                    android:layout_width="@android:dimen/thumbnail_width"
+                    android:layout_height="@android:dimen/thumbnail_height"
+                    android:id="@+id/prfimg"
+                    android:src="@android:drawable/ic_menu_report_image"
+                    android:clickable="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="45dp"
+                    android:layout_gravity="center" />
+
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Title"
+                    android:id="@+id/title_text"
+                    android:layout_below="@+id/prfimg"
+                    android:layout_gravity="center"
+                    android:textColor="#9f9b9b" />
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name_text"
+                    android:layout_below="@+id/title_text"
+                    android:layout_centerHorizontal="true"
+                    android:hint="Name"
+                    android:textColor="#9f9b9b"
+                    android:layout_gravity="center"/>
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Surname"
+                    android:id="@+id/surname_text"
+                    android:layout_below="@+id/name_text"
+                    android:layout_gravity="center"
+                    android:textColor="#9f9b9b" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regionS"
+                    android:layout_gravity="center"
+                    android:layout_below="@+id/surname_text"
+                    android:layout_marginTop="20dp"
+                    android:spinnerMode="dropdown" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cityS"
+                    android:layout_gravity="center"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginTop="40dp"
+                    android:layout_below="@+id/regionS" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/categoryS"
+                    android:spinnerMode="dropdown"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_below="@+id/cityS"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@color/colorLightGrey"
+                    android:hint="Description"
+                    android:layout_below="@+id/categoryS"
+                    android:id="@+id/description_text" />
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:layout_gravity="center"
+                    android:maxEms="10"
+                    android:maxLength="10"
+                    android:hint="Phone Number"
+                    android:id="@+id/phone_text" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/button"
+                    android:text="Register"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -5,15 +5,15 @@
         <item android:id="@+id/login" android:icon="@drawable/ic_account_circle"
             android:title="Login" />
         <item android:id="@+id/edit_profile" android:icon="@drawable/ic_action_edit"
-            android:title="Edit profile"
+            android:title="Editare profil"
             android:visible="false"/>
         <item android:id="@+id/filter" android:icon="@drawable/ic_filter_list"
-            android:title="Advanced Search" />
+            android:title="Cautare avansata" />
         <item android:id="@+id/register_account" android:icon="@drawable/ic_person_add"
-            android:title="Register" />
+            android:title="Inregistrare" />
 
         <item android:id="@+id/settings" android:icon="@drawable/ic_build"
-            android:title="Settings"
+            android:title="Setari"
             android:visible="false"/>
         <item android:id="@+id/logout" android:icon="@drawable/ic_action_exit"
             android:title="Logout"
@@ -24,9 +24,9 @@
     <item android:title="Workful">
         <menu>
             <item android:id="@+id/help" android:icon="@drawable/ic_help_outline"
-                android:title="Help" />
+                android:title="Ajutor" />
             <item android:id="@+id/about" android:icon="@drawable/ic_action_info"
-                android:title="About" />
+                android:title="Despre" />
 
         </menu>
     </item>

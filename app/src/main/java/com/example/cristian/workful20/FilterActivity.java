@@ -36,8 +36,6 @@ public class FilterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_filter);
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         regionsSpinner = (Spinner) findViewById(R.id.regionS);
         citiesSpinner = (Spinner)findViewById(R.id.cityS);
         categorySpinner = (Spinner)findViewById(R.id.categoryS);

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.workful.Tools.EmailVerification;
 import com.workful.Tools.HttpCommunication.RegisterAccountHttp;
@@ -42,21 +43,31 @@ public class RegisterActivity extends AppCompatActivity {
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkInput();
+                if(validation())
+                    checkInput();
+                else {
+                    Toast.makeText(RegisterActivity.this, "Eroare, introduceti valori in campuri!", Toast.LENGTH_LONG).show();
+                    error_text.setText("Eroare, introduceti valori in campuri!");
+                    error_text.setVisibility(View.VISIBLE);
+                }
             }
         });
 
     }
 
+    private boolean validation() {
+
+        email_text = String.valueOf(email.getText());
+        password_text = String.valueOf(password.getText());
+        confirm_password_text = String.valueOf(confirm_password.getText());
+
+        return !(email_text.matches("") || password_text.matches("") || confirm_password_text.matches(""));
+
+    }
+
     private void checkInput(){
 
-     //   try{
-            email_text = String.valueOf(email.getText());
-            password_text = String.valueOf(password.getText());
-            confirm_password_text = String.valueOf(confirm_password.getText());
-
-
-            if(checkEmail())
+        if(checkEmail())
                 if(checkPassword())
                     new RegisterAccountHttp(email_text, password_text, this, error_text).execute();
                 else {
@@ -71,14 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 error_text.setVisibility(View.VISIBLE);
                 Log.e("MainActivity", "adresa de mail incorecta");
             }
-    /*    }
-        catch (NullPointerException e){
-            e.printStackTrace();
-            Log.e("MainActivity", "campuri goale");
-            error_text.setText("Nu lasati campuri goale!");
-            error_text.setVisibility(View.VISIBLE);
-        }
-        */
+
 
     }
 

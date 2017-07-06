@@ -23,11 +23,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.workful.Tools.AccountSingleton;
 import com.workful.Tools.EndlessRecyclerViewScrollListener;
 import com.workful.Tools.SearchAdapter;
 import com.workful.Tools.HttpCommunication.SearchHttpRequest;
 import com.workful.templates.SearchResult;
+import com.workful.templates.Url;
 
 import java.util.ArrayList;
 
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private SearchAdapter adapter;
     private EndlessRecyclerViewScrollListener scrollListener;
+
+    private boolean ok = true;
 
     private ArrayList<SearchResult> lst = new ArrayList<>();
 
@@ -71,16 +75,11 @@ public class MainActivity extends AppCompatActivity
         //  --> Deserialize and construct new model objects from the API response
         //  --> Append the new data objects to the existing set of items inside the array of items
 
-        new SearchHttpRequest(search_url, this, adapter, offset, lst).execute();
+
+        new SearchHttpRequest(search_url, this, adapter, offset, lst, ok).execute();
         //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
     }
 
-    /*
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
-*/
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity
             search_url = "search?query="+query;
 
             newSearchNotify();
-            new SearchHttpRequest(search_url, this, adapter, 0, lst).execute();
+            new SearchHttpRequest(search_url, this, adapter, 0, lst, ok).execute();
 
             Toast.makeText(getBaseContext(), query, Toast.LENGTH_LONG).show();
 
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
                 search_url = String.format("search?query=%s&city=%s&category=%s",query, id_oras, id_categorie);
 
-                new SearchHttpRequest(search_url, this, adapter, 0, lst).execute();
+                new SearchHttpRequest(search_url, this, adapter, 0, lst, ok).execute();
 
             }
             else
@@ -153,7 +152,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(this, Settings.class);
+            startActivity(i);
         }else if(id == R.id.action_filter){
             Intent i = new Intent(this, FilterActivity.class);
             startActivity(i);
@@ -177,13 +177,20 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.help) {
-
+            Intent i = new Intent(this, Help.class);
+            startActivity(i);
 
         } else if (id == R.id.settings) {
+            Intent i = new Intent(this, Settings.class);
+            startActivity(i);
 
         } else if (id == R.id.about) {
+            Intent i = new Intent(this, About.class);
+            startActivity(i);
 
         } else if (id == R.id.edit_profile) {
+            Intent i = new Intent(this, EditProfile.class);
+            startActivity(i);
 
         } else if (id == R.id.register_account) {
             Intent i = new Intent(this, RegisterActivity.class);
@@ -191,16 +198,21 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.logout) {
             new AlertDialog.Builder(this)
-                    .setTitle("Log out")
-                    .setMessage("Are you sure you want to log out?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setTitle("Iesire")
+                    .setMessage("Sunteti sigur ca doriti sa iesiti?")
+                    .setPositiveButton("Da", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+
+                            lst.clear();
+                            newSearchNotify();
 
                            if(AccountSingleton.getCurrent()!=null) {
                                AccountSingleton.getCurrent().accountLogout();
                                if (android.os.Build.VERSION.SDK_INT >= 11){
                                     //Code for recreate
-                                   MainActivity.this.recreate();
+                                   finish();
+                                   startActivity(intent);
+
 
                                }else{
                                     //Code for Intent
@@ -210,9 +222,11 @@ public class MainActivity extends AppCompatActivity
                            }
                             else
                                 Log.e("MainActivity", "No user logged in");
+
+
                         }
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Nu", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
@@ -227,11 +241,16 @@ public class MainActivity extends AppCompatActivity
 
 
     private void refresh() {
+
+        Log.e("MainActivity", "refresh()");
+
         if(AccountSingleton.getCurrent() == null){
             drawer_menu.findItem(R.id.logout).setVisible(false);
             drawer_menu.findItem(R.id.settings).setVisible(false);
             drawer_menu.findItem(R.id.edit_profile).setVisible(false);
             drawer_menu.findItem(R.id.login).setVisible(true);
+            drawer_menu.findItem(R.id.register_account).setVisible(true);
+
 
             account_email.setText("www.workful.com");
             account_name.setText("Workful");
@@ -244,12 +263,13 @@ public class MainActivity extends AppCompatActivity
             drawer_menu.findItem(R.id.settings).setVisible(true);
             drawer_menu.findItem(R.id.edit_profile).setVisible(true);
             drawer_menu.findItem(R.id.login).setVisible(false);
+            drawer_menu.findItem(R.id.register_account).setVisible(false);
 
             account_email.setText(AccountSingleton.getCurrent().getEmail());
 
             if(!AccountSingleton.getCurrent().getFull_name().equals("")) {
                 account_name.setText(AccountSingleton.getCurrent().getFull_name());
-            //    new ImageDownloader(navigation_image, AccountSingleton.getCurrent().getEmail()).execute();
+                Picasso.with(this).load(Url.image_url(AccountSingleton.getCurrent().getEmail())).resize(100, 100).into(navigation_image);
                 navigation_image.setVisibility(View.VISIBLE);
             }
             else
@@ -309,7 +329,8 @@ public class MainActivity extends AppCompatActivity
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 // Triggered only when new data needs to be appended to the list
                 // Add whatever code is needed to append new items to the bottom of the list
-                loadNextDataFromApi(page);
+                if(ok)
+                    loadNextDataFromApi(page);
             }
         };
         // Adds the scroll listener to RecyclerView

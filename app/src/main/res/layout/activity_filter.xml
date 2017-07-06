@@ -20,7 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cityS"
+        android:layout_centerHorizontal="true"
         android:spinnerMode="dropdown"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/regionS" />
 
     <Spinner
@@ -28,9 +30,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/categoryS"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/cityS"
-
         />
 
     <EditText
@@ -46,8 +48,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="Cautare"
         android:id="@+id/search_button"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/categoryS"/>
 
 </RelativeLayout>
